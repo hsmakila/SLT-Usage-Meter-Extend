@@ -1,13 +1,13 @@
 console.log("SLT Usage Meter Extend Alive")
 
 loading = setInterval(function () {
-	if (document.getElementsByClassName("graph-body-title")[0].innerText.includes("Your speed is")) {
-		if (document.getElementsByClassName("progress-count")[0].innerText.includes("%")) {
-     	   loadExtension()
-        // clearInterval(loading)
-    	}
-	}
-    
+    const graphTitle = document.getElementsByClassName("graph-body-title")[0];
+    if (graphTitle && graphTitle.innerText.includes("Your speed is")) {
+        const progressCount = document.getElementsByClassName("progress-count")[0];
+        if (progressCount && progressCount.innerText.includes("%")) {
+            loadExtension();
+        }
+    }
 }, 1000); // Checks every 100ms(0.1s)
 
 var today = new Date()
@@ -15,8 +15,6 @@ var today = new Date()
 var standardPackage, standardUsage, nightPackage, nightUsage
 var packageSpentDays, packageForcastDays
 var standardUsageRate, standardForcastRate, nightUsageRate, nightForcastRate
-
-// document.body.addEventListener("click", loadExtension)
 
 function getStandardPackage() {
 	return parseFloat(document.getElementsByClassName("used-of")[0].innerText.split(" ")[4]).toFixed(1)
