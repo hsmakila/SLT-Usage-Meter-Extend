@@ -1,42 +1,51 @@
-# SLT Usage Meter Extend - Edge Extension
+# SLT Usage Meter Extend - Browser Extension
 
 ## Overview
-This Edge browser extension enhances the user experience on the [My SLT Broadband Usage webpage](https://myslt.slt.lk/). The extension provides additional insights such as:
+This browser extension enhances the user experience on the [My SLT Broadband Usage webpage](https://myslt.slt.lk/). The extension intelligently analyzes your package usage and validity period to provide smart daily allowance calculations:
 
-- **Current Usage Rate:** Monitor your real-time data consumption rate.
-- **Forecast Usage Rate:** Estimate future usage based on current trends.
-- **Data Need or Loss Information:** Get projections on whether you’ll have excess data or run out before the end of the billing cycle.
+- **Smart Daily Allowance:** Automatically calculates how much data you can safely use per day.
+- **Remaining Data Tracking:** See exactly how much data is left in your package.
+- **Days Countdown:** Know how many days remain until your package expires.
+- **Real-Time Updates:** Forecasts update automatically as you navigate the MySLT portal.
 
-With this extension, users can better manage their broadband usage and avoid unexpected data shortages or wastage.
+With this extension, users can make informed decisions about their daily usage and avoid running out of data before the package renewal date.
 
 ---
 
 ## Features
 
-1. **Real-Time Usage Monitoring**  
-   Displays your current data usage rate.
+1. **Intelligent Daily Allowance Calculator**  
+   Calculates your safe daily usage based on remaining data and package validity period.
 
-2. **Forecasting**  
-   Predicts your data usage trends and provides a forecast for the rest of the billing cycle.
+2. **Package Status at a Glance**  
+   Displays remaining data (in GB) and days left in your billing cycle.
 
-3. **Data Need/Loss Calculation**  
-   Calculates how much data you might need to balance your usage or how much surplus you might have at the end of the cycle.
+3. **Automatic Calculations**  
+   Dynamically updates forecasts based on your current usage and package details.
+
+4. **Seamless Integration**  
+   Information appears directly on the MySLT website without disrupting your browsing experience.
+
+5. **Quick Portal Access**  
+   One-click access to your SLT usage dashboard from the extension popup.
 
 ---
 
 ## Installation
 
 ### Prerequisites
-- Microsoft Edge browser installed on your device.
+- A modern web browser (Microsoft Edge, Chrome, or any Chromium-based browser) installed on your device.
 
 ### Steps
 1. Clone this repository or download the zip file.
    ```bash
    git clone https://github.com/your-username/your-repository.git
    ```
-2. Open Edge and navigate to `edge://extensions/`.
-3. Enable **Developer Mode** (toggle at the bottom-left corner).
-4. Click **Load unpacked** and select the folder containing the extension files (`content.js` and `manifest.json`).
+2. Open your browser and navigate to the extensions page:
+   - **Edge:** `edge://extensions/`
+   - **Chrome:** `chrome://extensions/`
+3. Enable **Developer Mode** (toggle in the top-right or bottom-left corner).
+4. Click **Load unpacked** and select the folder containing the extension files.
 
 Your extension will now be installed and active.
 
@@ -44,10 +53,11 @@ Your extension will now be installed and active.
 
 ## Usage
 1. Navigate to the [My SLT Broadband Usage webpage](https://myslt.slt.lk/).
-2. The extension will automatically display additional information, including:
-   - Current usage rate.
-   - Forecasted usage rate.
-   - Data need/loss projection.
+2. The extension will automatically display additional information for each package, including:
+   - Remaining data in GB
+   - Days remaining until package expiry
+   - Daily allowance (GB/day) based on your remaining quota
+3. Click the extension icon in your browser toolbar for quick access to the MySLT portal.
 
 ---
 
@@ -56,14 +66,17 @@ Your extension will now be installed and active.
 ```
 .
 ├── content.js           # Main JavaScript file for the extension logic
-└── manifest.json       # Metadata for the browser extension
+├── manifest.json       # Metadata for the browser extension
+├── popup.html          # Extension popup interface
+└── popup.js            # Popup functionality for quick portal access
 ```
 
 ---
 
 ## Technologies Used
-- **JavaScript** for extension logic.
-- **Edge Extension API** for browser integration.
+- **JavaScript** for extension logic and DOM manipulation.
+- **Manifest V3** for modern browser extension development.
+- **Chrome Extension API** (compatible with Edge and other Chromium-based browsers).
 
 ---
 
@@ -82,5 +95,15 @@ Your extension will now be installed and active.
 
 ---
 
-Thank you for using the My SLT Broadband Usage Edge Extension!
+## How It Works
+The extension automatically:
+1. Detects your package usage data on the MySLT portal
+2. Parses your remaining data and package expiry date
+3. Calculates the number of days until expiry
+4. Divides your remaining data by the days left to show your daily allowance
+5. Updates the display dynamically as the page loads or changes
+
+---
+
+Thank you for using the SLT Usage Meter Extend Extension!
 
